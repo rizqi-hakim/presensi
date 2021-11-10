@@ -34,7 +34,6 @@ class ReportController extends Controller
     public function Search(Request $request)
     {
         Log::info("REPORT REQUEST > " . json_encode($request->all()));
-        // dd($request);
 
         if ($request->reportname == 1) { // Kehadiran
             if ($request->type_value == 1) { //VIEW
@@ -92,6 +91,7 @@ class ReportController extends Controller
         $type = $request->type_value;
         $user_id = $request->idKaryawan;
 
+        //get all day from date range
         $periode_arr = [];
         $begin = new DateTime(date('Y-m-d', strtotime($source)));
         $end = new DateTime(date('Y-m-d', strtotime($source2)));
@@ -102,11 +102,14 @@ class ReportController extends Controller
             array_push($periode_arr, $dt->format('j F Y'));
         }
 
+        //get all day from presences
         $header = self::getQueryReport($request);
         $present_arr = [];
         foreach ($header as $h) {
             array_push($present_arr, date('j F Y',strtotime($h->presence_date)));
         }
+
+        //diff array
         $result = array_diff($periode_arr,$present_arr);
 
         return View("report.absentReport", compact('result', 'source', 'source2', 'type', 'user_id'));

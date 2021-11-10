@@ -16,7 +16,7 @@ class PresenceController extends Controller
 
         $now = strtotime(Carbon::now()->toDateTimeString());
 
-        // $cekStatus = '';
+        //check presence status
         if ($request->tipe == '1') {
             if ($now < $start) {
                 $cekStatus = '1';
@@ -31,7 +31,7 @@ class PresenceController extends Controller
             }
         }
         
-        // insert ke tabel presences
+        // store into presences
         Presence::create([
             'id_user' => $request->idKaryawan,
             'tipe' => $request->tipe,

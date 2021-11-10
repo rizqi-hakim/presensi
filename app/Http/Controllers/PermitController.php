@@ -58,14 +58,18 @@ class PermitController extends Controller
 
     public function storeApproval(Request $request)
     {
+        //using try catch for handling if any errors when storing data to table
         DB::beginTransaction();
 
         try {
+            //find data from permits
             $id_permit = $request->id_permit;
             $find_permit = Permit::find($id_permit);
 
+            //update status pending to approve
             $find_permit->update(['status' => 1]);
 
+            //adding record to presences with type sakit or cuti
             Presence::create([
                 'id_user' => $find_permit->id_user,
                 'status' => '1',
