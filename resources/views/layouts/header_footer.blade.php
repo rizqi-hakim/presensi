@@ -30,6 +30,9 @@
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="{{ route('approval') }}">Daftar Pengajuan Izin</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{{ route('user') }}">Daftar User</a>
+              </li>
             @endif
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="{{ route('report') }}">Laporan</a>
@@ -55,6 +58,8 @@
     </nav>
     @yield('main-section')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src='{{ asset('assets/js/jquery-3.0.0.js') }}' type='text/javascript'></script>
     <script src='{{ asset('assets/js/jquery-ui.min.js') }}' type='text/javascript'></script>
     @yield('script')

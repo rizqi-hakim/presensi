@@ -32,6 +32,11 @@ Route::post('/reportSearch', 'ReportController@Search')->name('reportSearch');
 Route::get('/approval', 'PermitController@approval')->name('approval');
 Route::post('/storeApproval', 'PermitController@storeApproval')->name('storeApproval');
 
+Route::get('/userList', 'UserController@index')->name('user');
+Route::post('storeUser','UserController@store')->name('storeUser');
+
+
+
 
 
 
